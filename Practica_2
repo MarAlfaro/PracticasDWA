@@ -1,0 +1,43 @@
+//creacion de objetos
+//poo uso de las clases, que son una plantilla de const
+class AlbumRep {
+    constructor(nombre,id){
+        this.nombre = nombre;
+        this.id = id;
+    }
+    //methods
+    reproducir(){
+        return `Reproduciendo album ${this.nombre}`
+    }
+}
+
+class podcast extends AlbumRep{
+    constructor(nombre,id,capitulo){
+        super(nombre,id);
+        this.capitulo = capitulo;
+    }
+    reproducirPodcast(){
+        return `Reproduciendo el podcast ${this.nombre}, capitulo ${this.nombre}`
+    }
+}
+class Anuncio extends AlbumRep{
+    constructor(nombre,id,capitulo){
+        super(nombre,id);
+        this.capitulo = capitulo;
+    }
+    reproducirPodcast(){
+        return `Reproduciendo el podcast ${this.nombre}, capitulo ${this.capitulo}`
+    }
+}
+
+//instanciar objetos
+const album1 = new AlbumRep('Fallen', 001);
+const album2 = new AlbumRep('Fallen', 002);
+const Podcast1 = new podcast('Salud mental en tiempos de pandemia', 003, 2);
+const Podcast2 = new podcast('Tu eres el autor de tu vida', 004, 3);
+
+//muestra los datos en consola
+console.log(album1.reproducir());
+console.log(album2.reproducir());
+console.log(Podcast1.reproducirPodcast());
+console.log(Podcast2.reproducirPodcast());
