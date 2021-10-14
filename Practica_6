@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica - 6</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        img{
+            float: left;
+            margin: 15px;
+            width: 350px;
+            height: 200px;
+        }
+        #banner{
+            background-color: blueviolet;
+            width: 450px;
+            height: 300px;
+            position: absolute;
+            left: 400px;
+            top: 50px;
+            font-size: 36px;
+            text-align: center;
+        }
+        #img1, #img2, #img3, #img4{
+            float: left;
+            margin: 5px;
+            width: 300px;
+            height: 200px;
+            font-size: 36px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+           // var cerrar = document.getElementById("cerrar");
+            //cerrar.addEventListener("click", cerrar_banner, false);
+            document.getElementById("cerrar").addEventListener("click", cerrar_banner, false);
+            document.getElementById("img1").addEventListener("click", carrito, false);
+
+            var imagenes = document.querySelectorAll("#carrete img");
+        for (var i = 0; i < imagenes.length; i ++) {
+            imagenes[i].addEventListener("click", carrito, false);    
+        }
+        });
+        
+        function cerrar_banner() {
+            $("#banner").remove();
+        }
+        function carrito(num) {
+            //$("#img1").replaceWith("<div id='sustitucion'>Agregado con exito al carrito! </div>");
+            if (num.target==img1) {
+                $("#img1").replaceWith("<div id='img1'>Agregado con exito al carrito! </div>");
+            }
+            if (num.target==img2) {
+                $("#img2").replaceWith("<div id='img2'>Agregado con exito al carrito! </div>");
+            }
+            if (num.target==img3) {
+                $("#img3").replaceWith("<div id='img3'>Agregado con exito al carrito! </div>");
+            }
+            if (num.target==img4) {
+                $("#img4").replaceWith("<div id='img4'>Agregado con exito al carrito! </div>");
+            }
+        }
+        //recorrer todo el carrete
+        
+    </script>
+</head>
+<body>
+    <div id="banner">
+        Banner de un anuncio de Spotify
+        <p id="cerrar">Cerrar</p>
+    </div>
+    <div id="carrete">
+        <img src="img/img-1.jpg" id="img1" alt="">
+        <img src="img/img-2.jpg" id="img2" alt="">
+        <img src="img/img-3.jpg" id="img3" alt="">
+        <img src="img/img-4.jpg" id="img4" alt="">
+    </div>
+</body>
+</html>
