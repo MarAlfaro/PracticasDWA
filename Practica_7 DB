@@ -1,0 +1,11 @@
+--Practica - 7
+use db_Agency
+
+SELECT * FROM (
+				SELECT nombre_hotel, num_habitaciones,
+					CASE WHEN num_habitaciones < 20 THEN 'Basic'
+						 WHEN num_habitaciones < 65 THEN 'Medium'
+						 WHEN num_habitaciones > 75 THEN 'Platinum'
+					END AS Categoria
+FROM tbl_hotel) AS Ordenes
+WHERE Categoria = 'Medium'
