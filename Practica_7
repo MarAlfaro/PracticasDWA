@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica - 7 | Combiando atributos CSS con JQuery</title>
+    <style>
+        .linkdestacaCursos{
+            background-color:greenyellow;
+           
+            
+        }
+        .linkdestacaInfo{
+            background-color:rgb(196, 47, 255);
+            /*color : greenyellow;
+            font-weight: bold;
+            margin-left: 25px;*/
+            
+        }
+        a{
+            display:block;
+            margin-bottom:20px;
+            font-size:24px;
+        }
+        table{
+            text-align:center;
+            border:none;
+        }
+        td{
+            border:none;
+        }
+        #contieneEnlaces {
+            position: absolute;
+            left: 31px;
+            top: 65px;
+            width: 400px;
+            height: 649px;
+            z-index: 1;
+            padding-top:100px;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () { 
+           /* $("a[href^='https://']").addClass("linkdestacaCursos");
+           */
+            document.getElementById("cursos").addEventListener("click", resaltaCursos, false);
+            document.getElementById("info").addEventListener("click", resaltaOtros, false);
+        });
+
+        function resaltaCursos() {
+            $(".cursos").toggleClass("linkdestacaCursos");
+           // $(".otros").removeClass("linkdestacaInfo");
+           // $(".cursos").addClass("linkdestacaCursos");
+        }
+
+        function resaltaOtros() {
+            $(".otros").toggleClass("linkdestacaInfo");
+           // $(".otros").addClass("linkdestacaInfo");
+           // $(".cursos").removeClass("linkdestacaCursos");
+        }
+
+    </script>
+</head>
+<body>
+    <div id="contieneEnlaces">
+        <a href="https://www.univo.edu.sv/" target="_blanck" class="cursos">
+            Univo Sitio Oficial
+        </a>
+        <a href="https://www.friv.com/" target="_blanck" class="otros">
+            Juegos Friv
+        </a>
+        <a href="https://www.quizizz.com" target="_blanck" class="cursos">
+            Quizzis educativos
+        </a>
+        <a href="eliminandoConjQ.html" target="_blanck">
+            Como eliminar contenido con JQuery
+        </a>
+        <a href="http://www.google.com" target="_blanck" class="otros">
+            Google
+        </a>
+        <a href="#">
+            Mas contenido...
+        </a>
+    </div>
+    <table width="100%" border="1">
+        <tr>
+            <td>
+                Cursos destacados&nbsp;&nbsp;
+                <input type="button" value="Cursos" id="cursos">
+            </td> 
+            <td>
+                Contenidos varios&nbsp;&nbsp;
+                <input type="button" value="Info" id="info">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
